@@ -1,4 +1,4 @@
-// Array global para almacenar los nombres de amigos
+// Array global para almacenar los nombres de los amigos
 let amigos = [];
 
 /**
@@ -10,11 +10,11 @@ let amigos = [];
  */
 function agregarAmigo() {
   // Capturar el valor del campo de entrada
-  let inputAmigo = document.getElementById('agregarAmigo');
-  let nombre = inputAmigo.value.trim();
-
+  let inputAmigo = document.getElementById("amigo");
+  let nombre = inputAmigo.value;
+  
   // Validar la entrada
-  if (nombre === "") {
+  if (nombre === '') {
     alert("Por favor, inserte un nombre.");
     return;
   }
@@ -24,7 +24,7 @@ function agregarAmigo() {
 
   // Limpiar el campo de entrada
   inputAmigo.value = "";
-
+  inputAmigo.focus();
   // Actualizar la lista visual
   actualizarLista();
 }
@@ -64,12 +64,9 @@ function sortearAmigo() {
   }
 
   // Generar un índice aleatorio
-  let indiceAleatorio = Math.floor(Math.random() * amigos.length);
-
-  // Obtener el nombre sorteado
-  let amigoSorteado = amigos[indiceAleatorio];
+  let amigoSorteado  = amigos[Math.floor(Math.random() * amigos.length)];
 
   // Mostrar el resultado
-  let resultado = document.getElementById("resultadoSorteo");
-  resultado.innerHTML = "Amigo sorteado: " + amigoSorteado;
+  let resultado = document.getElementById("resultado");
+  resultado.innerHTML = `El amigo sorteado es: ${amigoSorteado}`;
 }
